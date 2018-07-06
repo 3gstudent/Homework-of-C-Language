@@ -29,6 +29,6 @@ Enumerate all processes and get specified file's handle,then choose whether to c
 
 Support absolute path and relative path.
 
+### GetProcessAuthority.cpp
 
-
-
+Look through all the process and detect whether the process runs as admin.
