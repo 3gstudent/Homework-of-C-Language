@@ -32,3 +32,11 @@ Support absolute path and relative path.
 ### GetProcessAuthority.cpp
 
 Look through all the process and detect whether the process runs as admin.
+
+### DisableFirewall.cpp
+
+Use to disable Windows Firewall with normal user permissions.
+
+Expand on IFileOperation of UAC bypass.
+
+
