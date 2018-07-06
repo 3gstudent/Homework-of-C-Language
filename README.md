@@ -39,4 +39,12 @@ Use to disable Windows Firewall with normal user permissions.
 
 Expand on IFileOperation of UAC bypass.
 
+### MasqueradePEBtoCopyfile.cpp
+
+Masquerade current process' PEB into exploer.exe and use IFileOperation to copy file.
+
+You can use this to copy file into "C:\\windows\\System32" with normal user permissions.
+
+
+
 
