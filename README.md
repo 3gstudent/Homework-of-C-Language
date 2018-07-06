@@ -16,3 +16,11 @@ Use NtCreateThreadEx + LdrLoadDll to inject dll
 Note:
 
 You need use release mode to build it.
+
+### EnumerateProcess&GetFile'sHandle&CloseHandle.cpp
+
+Enumerate all processes and get specified file's handle,then choose whether to close it or not
+
+Support absolute path and relative path.
+
+
