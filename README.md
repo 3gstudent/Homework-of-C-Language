@@ -17,10 +17,18 @@ Note:
 
 You need use release mode to build it.
 
+### FreeDll.cpp
+
+Use NtCreateThreadEx to free dll.
+
+Use to inject Dll into a process at many times.
+
 ### EnumerateProcess&GetFile'sHandle&CloseHandle.cpp
 
 Enumerate all processes and get specified file's handle,then choose whether to close it or not
 
 Support absolute path and relative path.
+
+
 
 
