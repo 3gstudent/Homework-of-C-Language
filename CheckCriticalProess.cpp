@@ -65,8 +65,8 @@ int main(int argc, char *argv[])
 		printf("[!]NtQueryInformationProcess error\n");
 	if(breakOnTermination ==1)
 
-		printf("[+]The process is critical");
+		printf("[+]The process is critical\n");
 	else
-		printf("[!]The process is not critical");
+		printf("[!]The process is not critical\n");
 	return 0;
 }
