@@ -9,6 +9,10 @@ If the process is critical,when exit the process,the system will cause BSOD.
 
 And it can also be used to turn a critical process into normal.
 
+### CheckCriticalProess.cpp
+
+Check the selected process is critical or not.
+
 ### NtCreateThreadEx + LdrLoadDll.cpp
 
 Use NtCreateThreadEx + LdrLoadDll to inject dll
