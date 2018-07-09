@@ -13,6 +13,10 @@ And it can also be used to turn a critical process into normal.
 
 Check the selected process is critical or not.
 
+### FindCriticalProcess.cpp
+
+Look through all the process and find the critical processes.
+
 ### NtCreateThreadEx + LdrLoadDll.cpp
 
 Use NtCreateThreadEx + LdrLoadDll to inject dll
