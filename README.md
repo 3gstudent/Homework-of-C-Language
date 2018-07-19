@@ -17,13 +17,18 @@ Check the selected process is critical or not.
 
 Look through all the process and find the critical processes.
 
+###  CreateRemoteThread.cpp
+
+Use CreateRemoteThread to inject dll,usually used under XP.
+
 ### NtCreateThreadEx + LdrLoadDll.cpp
 
-Use NtCreateThreadEx + LdrLoadDll to inject dll
+Use NtCreateThreadEx + LdrLoadDll to inject dll.
 
 Note:
 
 You need use release mode to build it.
+
 
 ### FreeDll.cpp
 
@@ -33,7 +38,7 @@ Use to inject Dll into a process at many times.
 
 ### EnumerateProcess&GetFile'sHandle&CloseHandle.cpp
 
-Enumerate all processes and get specified file's handle,then choose whether to close it or not
+Enumerate all processes and get specified file's handle,then choose whether to close it or not.
 
 Support absolute path and relative path.
 
