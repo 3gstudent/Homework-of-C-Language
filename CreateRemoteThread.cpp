@@ -3,7 +3,6 @@
 #include <tlhelp32.h>
 #pragma comment(lib,"Advapi32.lib") 
 
-
 BOOL InjectDll(UINT32 ProcessId, char *DllPath)
 {
 	if (strstr(DllPath, "\\\\") != 0)
