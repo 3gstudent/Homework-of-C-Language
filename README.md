@@ -52,6 +52,22 @@ Support absolute path and relative path.
 
 Support Win8 and later.
 
+### GetPIDandHandle(evt).cpp
+
+Get Eventlog Service PID and search evt file's Handle.
+
+Use NtQuerySystemInformation to query SystemExtendedHandleInformation.
+
+Support WinXP and Win7.
+
+### GetPIDandHandle(evtx).cpp
+
+Get Eventlog Service PID and search evtx file's Handle.
+
+Use NtQuerySystemInformation to query SystemHandleInformation.
+
+Support Win8 and later.
+
 ### GetProcessAuthority.cpp
 
 Look through all the process and detect whether the process runs as admin.
