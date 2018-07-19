@@ -36,11 +36,17 @@ Use NtCreateThreadEx to free dll.
 
 Use to inject Dll into a process at many times.
 
-### EnumerateProcess&GetFile'sHandle&CloseHandle.cpp
+### EnumerateProcess&GetFile'sHandle&CloseHandle(XP).cpp
+
+Support WinXP and Win7.
+
+### EnumerateProcess&GetFile'sHandle&CloseHandle(Win8).cpp
 
 Enumerate all processes and get specified file's handle,then choose whether to close it or not.
 
 Support absolute path and relative path.
+
+Support Win8 and later.
 
 ### GetProcessAuthority.cpp
 
