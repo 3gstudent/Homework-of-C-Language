@@ -19,7 +19,7 @@ Look through all the process and find the critical processes.
 
 ###  CreateRemoteThread.cpp
 
-Use CreateRemoteThread to inject dll,usually used under XP.
+Use CreateRemoteThread to inject dll,usually used under WinXP.
 
 ### NtCreateThreadEx + LdrLoadDll.cpp
 
