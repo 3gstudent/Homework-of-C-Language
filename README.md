@@ -42,7 +42,12 @@ Enumerate all processes and get specified file's handle,then choose whether to c
 
 Support absolute path and relative path.
 
-Support WinXP and Win7.
+Support WinXP and later.
+
+Note:
+
+- WinXP and Win7,ObjectTypeNumber = 0x1c
+- Win8 and later,ObjectTypeNumber = 0x1e
 
 ### EnumerateProcess&GetFile'sHandle&CloseHandle(Win7).cpp
 
@@ -52,13 +57,23 @@ Support absolute path and relative path.
 
 Support Win7 and later.
 
+Note:
+
+- WinXP and Win7,ObjectTypeNumber = 0x1c
+- Win8 and later,ObjectTypeNumber = 0x1e
+
 ### GetPIDandHandle(evt).cpp
 
 Get Eventlog Service PID and search evt file's Handle.
 
 Use NtQuerySystemInformation to query SystemExtendedHandleInformation.
 
-Support WinXP and Win7.
+Support WinXP and later.
+
+Note:
+
+- WinXP and Win7,ObjectTypeNumber = 0x1c
+- Win8 and later,ObjectTypeNumber = 0x1e
 
 ### GetPIDandHandle(evtx).cpp
 
@@ -67,6 +82,11 @@ Get Eventlog Service PID and search evtx file's Handle.
 Use NtQuerySystemInformation to query SystemHandleInformation.
 
 Support Win7 and later.
+
+Note:
+
+- WinXP and Win7,ObjectTypeNumber = 0x1c
+- Win8 and later,ObjectTypeNumber = 0x1e
 
 ### GetProcessAuthority.cpp
 
