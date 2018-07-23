@@ -66,7 +66,7 @@ Get Eventlog Service PID and search evtx file's Handle.
 
 Use NtQuerySystemInformation to query SystemHandleInformation.
 
-Support Win8 and later.
+Support Win7 and later.
 
 ### GetProcessAuthority.cpp
 
