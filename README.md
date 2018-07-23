@@ -44,13 +44,13 @@ Support absolute path and relative path.
 
 Support WinXP and Win7.
 
-### EnumerateProcess&GetFile'sHandle&CloseHandle(Win8).cpp
+### EnumerateProcess&GetFile'sHandle&CloseHandle(Win7).cpp
 
 Enumerate all processes and get specified file's handle,then choose whether to close it or not.
 
 Support absolute path and relative path.
 
-Support Win8 and later.
+Support Win7 and later.
 
 ### GetPIDandHandle(evt).cpp
 
