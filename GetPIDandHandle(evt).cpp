@@ -296,10 +296,6 @@ int main(int argc, char *argv[])
 			continue;
 		}
 
-//		if (handle->ObjectTypeIndex != 0x1c){
-//			continue;
-//		}
-
 		if (!NT_SUCCESS(NtDuplicateObject(processHandle, handle->HandleValue, GetCurrentProcess(), &dupHandle, 0, 0, 0)))
 			
 		{
