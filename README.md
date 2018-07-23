@@ -90,4 +90,8 @@ Create 2 file mapping object.
 
 Use to share data between multiple processes.
 
+### OpenFileMapping.cpp
 
+Open the 2 file mapping object.
+
+Use to share data between multiple processes.
