@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
 	{
 		printf("\nGet Eventlog Service PID and search evtx file's Handle.\n");
 		printf("Use NtQuerySystemInformation to query SystemHandleInformation.\n");
-		printf("Support:Win8 and later\n");
+		printf("Support:Win7 and later\n");
 		printf("Usage:\n");
 		printf("%s <evtx file name>\n", argv[0]);
 		return 0;
