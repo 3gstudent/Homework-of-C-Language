@@ -84,8 +84,10 @@ Use to disable Windows Firewall with normal user permissions.
 
 Expand on IFileOperation of UAC bypass.
 
+### CreateFileMapping.cpp
 
+Create 2 file mapping object.
 
-
+Use to share data between multiple processes.
 
 
