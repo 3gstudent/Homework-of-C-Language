@@ -172,8 +172,11 @@ int main(int argc, char *argv[])
 		printf("\nGet Eventlog Service PID and search evtx file's Handle.\n");
 		printf("Use NtQuerySystemInformation to query SystemHandleInformation.\n");
 		printf("Support:Win7 and later\n");
+		printf("Note:\n");
+		printf("	WinXP and Win7,ObjectTypeNumber = 0x1c\n");
+		printf("	Win8 and later,ObjectTypeNumber = 0x1e\n");
 		printf("Usage:\n");
-		printf("%s <evtx file name>\n", argv[0]);
+		printf("	%s <evtx file name>\n", argv[0]);
 		return 0;
 	}
 	NTSTATUS status;
