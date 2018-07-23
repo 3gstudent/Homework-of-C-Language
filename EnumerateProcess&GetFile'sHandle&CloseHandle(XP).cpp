@@ -171,7 +171,10 @@ int main(int argc, char *argv[])
 	if (argc != 3)
 	{
 		printf("\nEnumerate all processes and get specified file's handle,then choose whether to close it or not\n");
-		printf("Support:WinXP and Win7\n");
+		printf("Support:WinXP and later\n");
+		printf("Note:\n");
+		printf("	WinXP and Win7,ObjectTypeNumber = 0x1c\n");
+		printf("	Win8 and later,ObjectTypeNumber = 0x1e\n");
 		printf("Usage:\n");
 		printf("     %s <absolute or relative file path> <flag>\n", argv[0]);
 		printf("If flag=0: \n     Enumerate all processes and get specified file's handle.\n");
@@ -234,97 +237,93 @@ int main(int argc, char *argv[])
 		POBJECT_TYPE_INFORMATION objectTypeInfo = NULL;
 		PVOID objectNameInfo = NULL;
 
-		if (handle->ObjectTypeIndex == 0x1c)//select File Type
+		if (handle->UniqueProcessId == (HANDLE)ErrorPID)
 		{
-			if (handle->UniqueProcessId == (HANDLE)ErrorPID)
-			{
-				free(objectTypeInfo);
-				free(objectNameInfo);
-				CloseHandle(dupHandle);
-				continue;
-			}
+			free(objectTypeInfo);
+			free(objectNameInfo);
+			CloseHandle(dupHandle);
+			continue;
+		}
 
-			if (!(processHandle = OpenProcess(PROCESS_DUP_HANDLE, FALSE, (DWORD)handle->UniqueProcessId)))
+		if (!(processHandle = OpenProcess(PROCESS_DUP_HANDLE, FALSE, (DWORD)handle->UniqueProcessId)))
+		{
+			printf("[!]Could not open PID %d!\n", handle->UniqueProcessId);
+			ErrorPID = (DWORD)handle->UniqueProcessId;
+			free(objectTypeInfo);
+			free(objectNameInfo);
+			CloseHandle(dupHandle);
+			CloseHandle(processHandle);
+			continue;
+		}
+
+		if (!NT_SUCCESS(NtDuplicateObject(processHandle, handle->HandleValue, GetCurrentProcess(), &dupHandle, 0, 0, 0)))
+		{
+			//			printf("[%#x] Error!\n", handle.Handle);
+			free(objectTypeInfo);
+			free(objectNameInfo);
+			CloseHandle(dupHandle);
+			CloseHandle(processHandle);
+			continue;
+		}
+		objectTypeInfo = (POBJECT_TYPE_INFORMATION)malloc(0x1000);
+		if (!NT_SUCCESS(NtQueryObject(dupHandle, ObjectTypeInformation, objectTypeInfo, 0x1000, NULL)))
+		{
+			//			printf("[%#x] Error!\n", handle.Handle);
+			free(objectTypeInfo);
+			free(objectNameInfo);
+			CloseHandle(dupHandle);
+			CloseHandle(processHandle);
+			continue;
+		}
+		objectNameInfo = malloc(0x1000);
+
+		if (IsBlockingHandle(dupHandle) == TRUE) //filter out the object which NtQueryObject could hang on
+		{
+			free(objectTypeInfo);
+			free(objectNameInfo);
+			CloseHandle(dupHandle);
+			CloseHandle(processHandle);
+			continue;
+		}
+
+		if (!NT_SUCCESS(NtQueryObject(dupHandle, ObjectNameInformation, objectNameInfo, 0x1000, &returnLength)))
+		{
+
+			objectNameInfo = realloc(objectNameInfo, returnLength);
+			if (!NT_SUCCESS(NtQueryObject(dupHandle, ObjectNameInformation, objectNameInfo, returnLength, NULL)))
 			{
-				printf("[!]Could not open PID %d!\n", handle->UniqueProcessId);
-				ErrorPID = (DWORD)handle->UniqueProcessId;
+				//				printf("[%#x] %.*S: (could not get name)\n", handle.Handle, objectTypeInfo->Name.Length / 2, objectTypeInfo->Name.Buffer);
 				free(objectTypeInfo);
 				free(objectNameInfo);
 				CloseHandle(dupHandle);
 				CloseHandle(processHandle);
 				continue;
 			}
-
-
-			if (!NT_SUCCESS(NtDuplicateObject(processHandle, handle->HandleValue, GetCurrentProcess(), &dupHandle, 0, 0, 0)))
+		}
+		objectName = *(PUNICODE_STRING)objectNameInfo;
+		if (objectName.Length)
+		{
+			_wcslwr_s(objectName.Buffer, wcslen(objectName.Buffer) + 1);
+			if (wcsstr(objectName.Buffer, buf1) != 0)
 			{
-				//			printf("[%#x] Error!\n", handle.Handle);
-				free(objectTypeInfo);
-				free(objectNameInfo);
-				CloseHandle(dupHandle);
-				CloseHandle(processHandle);
-				continue;
-			}
-			objectTypeInfo = (POBJECT_TYPE_INFORMATION)malloc(0x1000);
-			if (!NT_SUCCESS(NtQueryObject(dupHandle, ObjectTypeInformation, objectTypeInfo, 0x1000, NULL)))
-			{
-				//			printf("[%#x] Error!\n", handle.Handle);
-				free(objectTypeInfo);
-				free(objectNameInfo);
-				CloseHandle(dupHandle);
-				CloseHandle(processHandle);
-				continue;
-			}
-			objectNameInfo = malloc(0x1000);
+				printf("[+]HandleName:%.*S\n", objectName.Length / 2, objectName.Buffer);
+				printf("[+]Pid:%d\n", handle->UniqueProcessId);
+				printf("[+]Handle:%#x\n", handle->HandleValue);
+				printf("[+]Type:%#x\n", handle->ObjectTypeIndex);
+				printf("[+]ObjectAddress:0x%p\n", handle->Object);
+				printf("[+]GrantedAccess:%#x\n", handle->GrantedAccess);
 
-			if (IsBlockingHandle(dupHandle) == TRUE) //filter out the object which NtQueryObject could hang on
-			{
-				free(objectTypeInfo);
-				free(objectNameInfo);
-				CloseHandle(dupHandle);
-				CloseHandle(processHandle);
-				continue;
-			}
-
-			if (!NT_SUCCESS(NtQueryObject(dupHandle, ObjectNameInformation, objectNameInfo, 0x1000, &returnLength)))
-			{
-
-				objectNameInfo = realloc(objectNameInfo, returnLength);
-				if (!NT_SUCCESS(NtQueryObject(dupHandle, ObjectNameInformation, objectNameInfo, returnLength, NULL)))
+				if (memcmp(argv[2], "1", 1) == 0)
 				{
-					//				printf("[%#x] %.*S: (could not get name)\n", handle.Handle, objectTypeInfo->Name.Length / 2, objectTypeInfo->Name.Buffer);
-					free(objectTypeInfo);
-					free(objectNameInfo);
-					CloseHandle(dupHandle);
-					CloseHandle(processHandle);
-					continue;
-				}
-			}
-			objectName = *(PUNICODE_STRING)objectNameInfo;
-			if (objectName.Length)
-			{
-				_wcslwr_s(objectName.Buffer, wcslen(objectName.Buffer) + 1);
-				if (wcsstr(objectName.Buffer, buf1) != 0)
-				{
-					printf("[+]HandleName:%.*S\n", objectName.Length / 2, objectName.Buffer);
-					printf("[+]Pid:%d\n", handle->UniqueProcessId);
-					printf("[+]Handle:%#x\n", handle->HandleValue);
-					printf("[+]Type:%#x\n", handle->ObjectTypeIndex);
-					printf("[+]ObjectAddress:0x%p\n", handle->Object);
-					printf("[+]GrantedAccess:%#x\n", handle->GrantedAccess);
+					printf("[+]Try to close the file's handle... ");
 
-					if (memcmp(argv[2], "1", 1) == 0)
+					if (DuplicateHandle(processHandle, handle->HandleValue, GetCurrentProcess(), &dupHandle, 0, 0, DUPLICATE_CLOSE_SOURCE))
 					{
-						printf("[+]Try to close the file's handle... ");
-
-						if (DuplicateHandle(processHandle, handle->HandleValue, GetCurrentProcess(), &dupHandle, 0, 0, DUPLICATE_CLOSE_SOURCE))
-						{
-							CloseHandle(dupHandle);
-							printf("done.\n");
-						}
-						else
-							printf("false.\n");
+						CloseHandle(dupHandle);
+						printf("done.\n");
 					}
+					else
+						printf("false.\n");
 				}
 			}
 			else
