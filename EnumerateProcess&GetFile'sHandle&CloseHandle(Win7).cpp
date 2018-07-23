@@ -144,6 +144,9 @@ int main(int argc, char *argv[])
 	{
 		printf("\nEnumerate all processes and get specified file's handle,then choose whether to close it or not\n");
 		printf("Support:Win7 and later\n");
+		printf("Note:\n");
+		printf("	WinXP and Win7,ObjectTypeNumber = 0x1c\n");
+		printf("	Win8 and later,ObjectTypeNumber = 0x1e\n");
 		printf("Usage:\n");
 		printf("     %s <absolute or relative file path> <flag>\n", argv[0]);
 		printf("If flag=0: \n     Enumerate all processes and get specified file's handle.\n");
