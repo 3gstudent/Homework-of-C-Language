@@ -115,3 +115,7 @@ Use to share data between multiple processes.
 Open the 2 file mapping object.
 
 Use to share data between multiple processes.
+
+### DeleteRecordbyTerminateProcess(ReplaceFile).cpp
+
+Kill the eventlog service's process and replace the eventlog file,then restart the Eventlog Service.
