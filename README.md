@@ -119,3 +119,10 @@ Use to share data between multiple processes.
 ### DeleteRecordbyTerminateProcess(ReplaceFile).cpp
 
 Kill the eventlog service's process and replace the eventlog file,then restart the Eventlog Service.
+
+### EnablePrivilegeandGetTokenInformation.cpp
+
+Enable the SeDebugPrivilege of current process and then get the full privileges of current process.
+
+
+
