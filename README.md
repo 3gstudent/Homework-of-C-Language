@@ -124,5 +124,5 @@ Kill the eventlog service's process and replace the eventlog file,then restart t
 
 Enable the SeDebugPrivilege of current process and then get the full privileges of current process.
 
-
+It can also enable other privileges.
 
