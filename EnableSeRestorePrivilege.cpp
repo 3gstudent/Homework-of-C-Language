@@ -1,6 +1,8 @@
 /*
 Reference:https://github.com/hatRiot/token-priv
-Enable the SeRestorePrivilege of current process and then create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testrestore
+Enable the SeRestorePrivilege of current process and then create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testrestore.
+
+We will have write access on the system.
 */
 
 #include <windows.h>
