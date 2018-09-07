@@ -126,3 +126,10 @@ Enable the SeDebugPrivilege of current process and then get the full privileges 
 
 It can also enable other privileges.
 
+### EnableSeBackupPrivilege.cpp
+
+Enable the SeBackupPrivilege of current process and then read the password hashes of local Administrator accounts from the registry.
+
+The file will be saved as `C:\\test\\SAM`,`C:\\test\\SECURITY` and `C:\\test\\SYSTEM`
+
+
