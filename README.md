@@ -140,4 +140,10 @@ Enable the SeBackupPrivilege of current process and then read the password hashe
 
 The file will be saved as `C:\\test\\SAM`,`C:\\test\\SECURITY` and `C:\\test\\SYSTEM`
 
+### EnableSeRestorePrivilege.cpp
+
+Enable the SeRestorePrivilege of current process and then create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testrestore
+
+
+
 
