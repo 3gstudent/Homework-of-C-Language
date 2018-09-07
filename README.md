@@ -150,4 +150,11 @@ Enable the SeRestorePrivilege of current process and then create a reg key at HK
 
 We will have write access on the system.
 
+### EnableSeCreateTokenPrivilege.cpp
+
+Enable the SeCreateTokenPrivilege of current process and then create primary tokens via the ZwCreateToken API.
+
+After that enable the local administrator group on the token and enable SeDebugPrivilege and SeTcbPrivilege.
+
+We will have all access on the system.
 
