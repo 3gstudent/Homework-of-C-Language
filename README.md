@@ -144,8 +144,8 @@ The file will be saved as `C:\\test\\SAM`,`C:\\test\\SECURITY` and `C:\\test\\SY
 
 ### EnableSeRestorePrivilege.cpp
 
-Enable the SeRestorePrivilege of current process and then create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testrestore
+Enable the SeRestorePrivilege of current process and then create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testrestore.
 
-
+We will have write access on the system.
 
 
