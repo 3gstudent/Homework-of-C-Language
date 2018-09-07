@@ -4,8 +4,9 @@ Enable the SeBackupPrivilege of current process and then we can call LsaLogonUse
 and add arbitrary groups to the resulting token returned by this call. 
 We will add the group SID “S-1-5-18” to the token, this is the SID for the Local System account 
 and if we are using a token that possesses it, we will have full privilege on the system. 
+It will create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testtcb.
 
-It will create a reg key at HKEY_LOCAL_MACHINE\SOFTWARE\testtcb
+We will have full privilege on the system.
 */
 
 
