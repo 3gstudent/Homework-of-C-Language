@@ -126,6 +126,14 @@ Enable the SeDebugPrivilege of current process and then get the full privileges 
 
 It can also enable other privileges.
 
+### EnableSeTcbPrivilege.cpp
+
+Enable the SeBackupPrivilege of current process and then we can call LsaLogonUser with SeTcbPrivilege and add arbitrary groups to the resulting token returned by this call. 
+
+We will add the group SID “S-1-5-18” to the token, this is the SID for the Local System account and if we are using a token that possesses it, we will have full privilege on the system. 
+
+It will start calc.exe with “NT AUTHORITY\SYSTEM” privilege.
+
 ### EnableSeBackupPrivilege.cpp
 
 Enable the SeBackupPrivilege of current process and then read the password hashes of local Administrator accounts from the registry.
