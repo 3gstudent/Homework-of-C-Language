@@ -1,3 +1,7 @@
+/*
+Reference:https://github.com/hatRiot/token-priv
+Enable the SeDebugPrivilege of current process and then get the full privileges of current process.
+*/
 #include <windows.h>
 #include <assert.h>
 #pragma comment(lib,"user32.lib") 
