@@ -140,7 +140,9 @@ We will have full privilege on the system.
 
 Enable the SeBackupPrivilege of current process and then read the password hashes of local Administrator accounts from the registry.
 
-The file will be saved as `C:\\test\\SAM`,`C:\\test\\SECURITY` and `C:\\test\\SYSTEM`
+The file will be saved as `C:\\test\\SAM`,`C:\\test\\SECURITY` and `C:\\test\\SYSTEM`.
+
+We will have read access on the system.
 
 ### EnableSeRestorePrivilege.cpp
 
