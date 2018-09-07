@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <assert.h>
+#pragma comment(lib,"user32.lib") 
 
 int IsTokenSystem(HANDLE tok)
 {
