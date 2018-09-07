@@ -4,6 +4,7 @@ Enable the SeDebugPrivilege of current process and then get the full privileges 
 */
 #include <windows.h>
 #include <assert.h>
+#pragma comment(lib, "advapi32.lib")
 #pragma comment(lib,"user32.lib") 
 
 int IsTokenSystem(HANDLE tok)
