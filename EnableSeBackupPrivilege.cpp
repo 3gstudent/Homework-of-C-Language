@@ -1,7 +1,7 @@
 /*
 Reference:https://github.com/hatRiot/token-priv
 Enable the SeBackupPrivilege of current process and then read the password hashes of local Administrator accounts from the registry.
-The file will be saved as C:\\test\\SAM,C:\\test\\SECURITY and C:\\test\\SYSTEM.
+The file will be saved as C:\\test\\SAM, C:\\test\\SECURITY and C:\\test\\SYSTEM.
 */
 
 #include <windows.h>
