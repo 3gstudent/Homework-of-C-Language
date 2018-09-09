@@ -289,7 +289,7 @@ run_s4u(HANDLE hToken)
 
 	LPTSTR szCommandLine = NULL;
 	LPTSTR szDomain = TEXT(".");
-	LPTSTR szUsername = TEXT("1");//the user who has SeTcbPrivilege
+	LPTSTR szUsername = TEXT("test1");//the user who has SeTcbPrivilege
 	TCHAR seps[] = TEXT("\\");
 	TCHAR *next_token = NULL;
 
