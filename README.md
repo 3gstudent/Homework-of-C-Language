@@ -1,6 +1,7 @@
 # Homework-of-C-Language
 C/C++ code examples of my blog.
 
+---
 
 ### SetProcessCritical.cpp
 
