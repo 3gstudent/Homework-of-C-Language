@@ -174,6 +174,11 @@ We will have all access on the system.
 
 ### EnableSeTakeOwnershipPrivilege.cpp
 
-Enable the SeTakeOwnershipPrivilege of current process and then have write access to a registry key.
+Enable the SeTakeOwnershipPrivilege of current process and then have write access to a registry key "hklm\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options".
+Then we can write it in "Medium" permission.
+
+Eg.
+
+`reg add "hklm\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options" /v takeownership /t REG_SZ /d "C:\\Windows\\System32\\calc.exe"`
 
 We will have write access on the system' registry key.
