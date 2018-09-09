@@ -1,9 +1,9 @@
 /*
 Reference:https://github.com/hatRiot/token-priv
 Enable the SeAssignPrimaryTokenPrivilege of current process and then 
-call the CreateProcessAsUser function, passing the elevated token to get an elevated process.
+call the CreateProcessAsUser function, passing the current process token to get a process.
 
-We will have full privilege on the system.
+Using with  RottenPotato,we will have full privilege on the system.
 */
 
 #include <windows.h>
