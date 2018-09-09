@@ -1,8 +1,7 @@
 /*
 Reference:https://github.com/hatRiot/token-priv
 Enable the SeImpersonatePrivilege of current process and then create an impersonation token.
-Call the CreateProcessWithToken function, passing the elevated token to get an elevatedprocess.
-argument.
+Call the CreateProcessWithToken function, passing the elevated token to get an elevated process.
 
 We will have full privilege on the system.
 */
