@@ -1,6 +1,7 @@
 # Homework-of-C-Language
 C/C++ code examples of my blog.
 
+
 ### SetProcessCritical.cpp
 
 Set the selected process as critical or not.
@@ -17,6 +18,8 @@ Check the selected process is critical or not.
 
 Look through all the process and find the critical processes.
 
+---
+
 ###  CreateRemoteThread.cpp
 
 Use CreateRemoteThread to inject dll,usually used under WinXP.
@@ -29,12 +32,13 @@ Note:
 
 You need use release mode to build it.
 
-
 ### FreeDll.cpp
 
 Use NtCreateThreadEx to free dll.
 
 Use to inject Dll into a process at many times.
+
+---
 
 ### EnumerateProcess&GetFile'sHandle&CloseHandle(XP).cpp
 
@@ -62,6 +66,8 @@ Note:
 - WinXP and Win7,ObjectTypeNumber = 0x1c
 - Win8 and later,ObjectTypeNumber = 0x1e
 
+---
+
 ### GetPIDandHandle(evt).cpp
 
 Get Eventlog Service PID and search evt file's Handle.
@@ -88,9 +94,13 @@ Note:
 - WinXP and Win7,ObjectTypeNumber = 0x1c
 - Win8 and later,ObjectTypeNumber = 0x1e
 
+---
+
 ### GetProcessAuthority.cpp
 
 Look through all the process and detect whether the process runs as admin.
+
+---
 
 ### MasqueradePEBtoCopyfile.cpp
 
@@ -103,6 +113,8 @@ You can use this to copy file into "C:\\windows\\System32" with normal user perm
 Use to disable Windows Firewall with normal user permissions.
 
 Expand on IFileOperation of UAC bypass.
+
+---
 
 ### CreateFileMapping.cpp
 
@@ -119,6 +131,8 @@ Use to share data between multiple processes.
 ### DeleteRecordbyTerminateProcess(ReplaceFile).cpp
 
 Kill the eventlog service's process and replace the eventlog file,then restart the Eventlog Service.
+
+---
 
 ### EnablePrivilegeandGetTokenInformation.cpp
 
@@ -182,3 +196,12 @@ Eg.
 `reg add "hklm\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options" /v takeownership /t REG_SZ /d "C:\\Windows\\System32\\calc.exe"`
 
 We will have write access on the system' registry key.
+
+### EnableSeDebugPrivilege.cpp
+
+Enable the SeDebugPrivilege of current process and then we can inject a dll into the process. 
+
+We will have full privilege on the system.
+
+---
+
