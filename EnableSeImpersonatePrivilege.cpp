@@ -1,9 +1,9 @@
 /*
 Reference:https://github.com/hatRiot/token-priv
 Enable the SeImpersonatePrivilege of current process and then create an impersonation token.
-Call the CreateProcessWithToken function, passing the elevated token to get an elevated process.
+Call the CreateProcessWithToken function, passing the current process token to get a process.
 
-We will have full privilege on the system.
+Using with RottenPotato,we will have full privilege on the system.
 */
 
 #include <windows.h>
