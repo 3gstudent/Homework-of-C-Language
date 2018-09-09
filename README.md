@@ -145,17 +145,15 @@ It can also enable other privileges.
 
 Enable the SeImpersonatePrivilege of current process and then create an impersonation token.
 
-Call the CreateProcessWithToken function, passing the elevated token to get an elevated process.
+Call the CreateProcessWithToken function, passing the current process token to get a process.
 
-We will have full privilege on the system.
+Using with RottenPotato,we will have full privilege on the system.
 
 ### EnableSeAssignPrimaryTokenPrivilege.cpp
 
-Enable the SeAssignPrimaryTokenPrivilege of current process and then 
+Enable the SeAssignPrimaryTokenPrivilege of current process and then call the CreateProcessAsUser function, passing the current process token to get a process.
 
-call the CreateProcessAsUser function, passing the elevated token to get an elevated process.
-
-We will have full privilege on the system.
+Using with RottenPotato,we will have full privilege on the system.
 
 ### EnableSeTcbPrivilege.cpp
 
