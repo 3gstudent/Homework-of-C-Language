@@ -141,6 +141,15 @@ Enable the SeDebugPrivilege of current process and then get the full privileges 
 
 It can also enable other privileges.
 
+### EnableSeImpersonatePrivilege.cpp
+
+Enable the SeImpersonatePrivilege of current process and then create an impersonation token.
+
+Call the CreateProcessWithToken function, passing the elevated token to get an elevatedprocess.
+argument.
+
+We will have full privilege on the system.
+
 ### EnableSeTcbPrivilege.cpp
 
 Enable the SeBackupPrivilege of current process and then we can call LsaLogonUser with SeTcbPrivilege and add arbitrary groups to the resulting token returned by this call. 
