@@ -171,3 +171,9 @@ First you need to add two reg keys,the command is:
 Then run me to load the driver(C:\test\Capcom.sys) into the kernel.
 
 We will have all access on the system.
+
+### EnableSeTakeOwnershipPrivilege.cpp
+
+Enable the SeTakeOwnershipPrivilege of current process and then have write access to a registry key.
+
+We will have write access on the system' registry key.
