@@ -11,7 +11,6 @@ int scan(int Ip,int Port)
 	s = socket(AF_INET, SOCK_STREAM, 0);
 	if (s == INVALID_SOCKET) 
 	{
-		
 		printf("[!]socket error\n");
 		return 1;
 	}
@@ -19,7 +18,6 @@ int scan(int Ip,int Port)
 	unsigned long mode=1; 
 	if(ioctlsocket(s, FIONBIO, (unsigned long*)&mode) == SOCKET_ERROR)
 	{
-		
 		printf("[!]ioctlsocket error\n");
 		return 1;
 	}
