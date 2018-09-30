@@ -4,10 +4,10 @@
 
 int scan(int Ip,int Port)
 {  
-    WSADATA wsaData;
-    SOCKET s;
+    	WSADATA wsaData;
+    	SOCKET s;
 	
-    WSAStartup(MAKEWORD(2, 2), &wsaData);
+    	WSAStartup(MAKEWORD(2, 2), &wsaData);
 	s = socket(AF_INET, SOCK_STREAM, 0);
 	if (s == INVALID_SOCKET) 
 	{
@@ -27,8 +27,8 @@ int scan(int Ip,int Port)
 	struct sockaddr_in addr;
 	memset( &addr, 0, sizeof(addr)); 
 	
-    addr.sin_family = AF_INET;
-    addr.sin_addr.s_addr = Ip;		
+    	addr.sin_family = AF_INET;
+    	addr.sin_addr.s_addr = Ip;		
 	addr.sin_port = htons(Port); 
 	
 	connect(s, (struct sockaddr *)&addr, sizeof(addr));
@@ -45,14 +45,14 @@ int scan(int Ip,int Port)
 	in_addr inaddr;
 	inaddr.s_addr = Ip;
 
-    if(ret<=0)
+    	if(ret<=0)
 		printf("%s\n",inet_ntoa(inaddr));
 	else
 		printf("%s:%d\n",inet_ntoa(inaddr),Port);
 	
 	closesocket(s);
-    WSACleanup();
-    return 1;
+    	WSACleanup();
+    	return 1;
 }
 
 int main(int argc, char *argv[])
