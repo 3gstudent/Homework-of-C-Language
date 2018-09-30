@@ -220,3 +220,12 @@ We will have full privilege on the system.
 
 ---
 
+### portscan.cpp
+
+Use to scan port.
+
+The timeout is 3 seconds.
+
+python version:
+
+https://github.com/3gstudent/Homework-of-Python/blob/master/portscan.py
