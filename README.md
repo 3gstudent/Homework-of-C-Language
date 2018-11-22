@@ -229,3 +229,11 @@ The timeout is 3 seconds.
 python version:
 
 https://github.com/3gstudent/Homework-of-Python/blob/master/portscan.py
+
+---
+
+### ListRecentFileCache.cpp
+
+Load the RecentFileCache.bcf under Win7 and print the data.
+
+The RecentFileCache.bcf is replaced by Amcache.hve in Win8.
