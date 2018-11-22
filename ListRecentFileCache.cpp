@@ -6,7 +6,6 @@ typedef struct _BCF_HEADER {
 	ULONG Unknown;
 } BCFHEADER, *PBCFHEADER;
 
-
 typedef struct _BCF_RECORD {
 	ULONG Size;
 } BCFRECORD, *PBCFRECORD;
@@ -37,7 +36,7 @@ int main(int argc, char *argv[])
 {
 	if (argc != 2)
 	{
-		printf("\nLoad the RecentFileCache.bcf under Win7 and print the data.\n");
+		printf("\nLoad the RecentFileCache.bcf in Win7 and print the data.\n");
 		printf("Author:3gstudent\n");
 		printf("Usage:\n");
 		printf("     %s <file path of RecentFileCache.bcf>\n", argv[0]);
