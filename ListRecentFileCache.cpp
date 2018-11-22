@@ -11,22 +11,23 @@ typedef struct _BCF_RECORD {
 } BCFRECORD, *PBCFRECORD;
 #pragma pack()
 
-void ListRecord(PVOID mapAddress)
+void ListRecord(PVOID mapAddress, int StopSize)
 {
 	char flag[16] = { 0xFE,0xFF,0xEE,0xFF,0x11,0x22,0x00,0x00,0x03,0x00,0x00,0x00,0x01,0x00,0x00,0x00 };
 	if (memcmp(mapAddress, flag, 16))
 	{
 		printf("[!]Maybe it's not RecentFileCache.bcf");
-		exit (0);
+		exit(0);
 	}
 	PBCFRECORD currentRecordPtr = NULL;
 	PBCFRECORD nextRecordPtr = (PBCFRECORD)((PBYTE)mapAddress + 0x14);
-	while (nextRecordPtr)
+	int FlagSize = 0x14;
+	while (FlagSize<StopSize)
 	{
 		currentRecordPtr = nextRecordPtr;
-		
+		FlagSize += nextRecordPtr->Size * 2 + 6;
 		WCHAR *RecordName = new WCHAR[nextRecordPtr->Size + 1];
-		memcpy(RecordName, nextRecordPtr + 1 , nextRecordPtr->Size * 2 + 2);
+		memcpy(RecordName, nextRecordPtr + 1, nextRecordPtr->Size * 2 + 2);
 		printf("%ws\n", RecordName);
 		nextRecordPtr = (PBCFRECORD)((PBYTE)nextRecordPtr + nextRecordPtr->Size * 2 + 6);
 	}
@@ -58,8 +59,7 @@ int main(int argc, char *argv[])
 	unsigned char *buf = new unsigned char[len];
 	fseek(fp, 0, SEEK_SET);
 	fread(buf, len, 1, fp);
-	ListRecord(buf);
+	ListRecord(buf, len);
 	fclose(fp);
-
 	return 0;
 }
