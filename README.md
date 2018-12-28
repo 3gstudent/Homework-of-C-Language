@@ -245,3 +245,15 @@ Load the RecentFileCache.bcf under Win7 and delete the selected data.
 The new file will be saved as NewRecentFileCache.bcf.
 
 ---
+
+### ListLogonSessions.cpp
+
+List logon session information.
+
+The output format is the same as LogonSessions.
+
+https://docs.microsoft.com/en-us/sysinternals/downloads/logonsessions
+
+
+
+
