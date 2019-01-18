@@ -254,6 +254,20 @@ The output format is the same as LogonSessions.
 
 https://docs.microsoft.com/en-us/sysinternals/downloads/logonsessions
 
+---
 
+### FileTimeControl_WinAPI.cpp
 
+Use GetFileTime and SetFileTime to view and modify the file's CreateTime,AccessTime and LastWriteTime.
 
+Note:It doesn't support file's MFTChangeTime.
+
+Support file and folder.
+
+### FileTimeControl_NTAPI.cpp
+
+Use NtQueryInformationFile and NtSetInformationFile to view and modify the file's CreateTime,AccessTime,LastWriteTime and MFTChangeTime.
+
+reference:https://github.com/rapid7/meterpreter/blob/master/source/extensions/priv/server/timestomp.c
+
+Only support file.
