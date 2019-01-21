@@ -271,3 +271,7 @@ Use NtQueryInformationFile and NtSetInformationFile to view and modify the file'
 reference:https://github.com/rapid7/meterpreter/blob/master/source/extensions/priv/server/timestomp.c
 
 Only support file.
+
+### EnumUsnJournal.cpp
+
+Enumerate the Usn Journal Record in drive C.
