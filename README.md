@@ -279,3 +279,16 @@ Only support file.
 Enumerate the Usn Journal Record in drive C.
 
 ---
+
+### ProcessCommandlineSpoofing.cpp
+
+Implementing SwampThing with C++
+
+Reference: https://github.com/FuzzySecurity/Sharp-Suite/tree/master/SwampThing
+
+Spoof process command line args (x32/64). Essentially you create a process in a suspended state, rewrite the PEB, resume and finally revert the PEB. The end result is that logging infrastructure will record the fake command line args instead of the real ones. 
+
+---
+
+
+
