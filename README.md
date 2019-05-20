@@ -294,5 +294,12 @@ Spoof process command line args (x32/64). Essentially you create a process in a 
 
 ---
 
+### SendKeyboardMessageToPowershell.cpp
+
+Send keyboard messages to specified powershell process.
+
+Default command:whoami
+
+You can get the Virtual-Key Codes from: https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes
 
 
