@@ -101,6 +101,10 @@ Note:
 
 Look through all the process and detect whether the process runs as admin.
 
+### GetProcessCommandLine.cpp
+
+Gets the command line of the selected process.
+
 ---
 
 ### MasqueradePEBtoCopyfile.cpp
