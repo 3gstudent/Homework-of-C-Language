@@ -302,4 +302,9 @@ Default command:whoami
 
 You can get the Virtual-Key Codes from: https://docs.microsoft.com/en-us/windows/desktop/inputdev/virtual-key-codes
 
+### SendKeyboardMessageToPowershell(Get-History).cpp
+
+Send keyboard messages to specified powershell process.
+
+Default command:Get-History|export-csv $env:temp"\history.csv"
 
