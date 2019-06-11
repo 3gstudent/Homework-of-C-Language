@@ -308,3 +308,7 @@ Send keyboard messages to specified powershell process.
 
 Default command:Get-History|export-csv $env:temp"\history.csv"
 
+### GetOSVersion.cpp
+
+Use to detect the OS's Version. 
+It includes Windows Vista/Win 7/Windows Server 2008/Windows Server 2008 R2/Windows Server 2012/Windows 10.
