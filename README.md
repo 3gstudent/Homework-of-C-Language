@@ -313,3 +313,25 @@ Default command:Get-History|export-csv $env:temp"\history.csv"
 Use to detect the OS's Version.
 
 It includes Windows Vista/Win 7/Windows Server 2008/Windows Server 2008 R2/Windows Server 2012/Windows 10.
+
+### sekurlsa-wdigest.cpp
+
+Use to get plain-text credentials of the 64-bit OS.
+
+This is a simple implementation of Mimikatz's sekurlsa::wdigest
+
+Support:
+
+ - Win7 x64/Windows Server 2008 x64/Windows Server 2008R2 x64
+ - Win8 x64/Windows Server 2012 x64/Windows Server 2012R2 x64
+ - Win10_1507(and before 1903) x64
+
+Source: https://gist.github.com/xpn/12a6907a2fce97296428221b3bd3b394
+
+The following functions have been added:
+
+ - EnableDebugPrivilege
+ - GetOSVersion
+ - Support different OS
+
+
