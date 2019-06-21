@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
 	{
 		printf("Use NtCreateThreadEx to free dll\n\n");
     printf("Usage:\n");
-		printf("%s <PID> <Dll Path>\n", argv[0]);
+		printf("%s <PID> <Dll Name>\n", argv[0]);
 		return 0;
 	}
   
