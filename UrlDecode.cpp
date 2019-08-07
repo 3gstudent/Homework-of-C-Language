@@ -28,6 +28,7 @@ WCHAR *UrlDecodeWCHAR(WCHAR *String1)
 			String2[i] = String1[i + Flag * 2];
 		}
 	}
+	String2[wcslen(String1)] = '\0';
 	//	printf("%ws", String2);
 	return String2;
 }
@@ -56,6 +57,7 @@ char *UrlDecodeChar(char *String1)
 			String2[i] = String1[i + Flag * 2];
 		}
 	}
+	String2[strlen(String1)] = '\0';
 //	printf("%s", String2);
 	return String2;
 }
