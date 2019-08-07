@@ -336,6 +336,19 @@ The following functions have been added:
 
 ---
 
+### UrlDecode.cpp
+
+Use to decode URL.
+
+Support multi-byte character sets and Unicode character sets.
+
+Support the following characters:
+- %20->blank space 
+- %22->"
+- %27->'
+
+---
+
 ### HTTPServerWebshell.cpp
 
 Use the HTTP Server API to perform server-side tasks.
