@@ -347,6 +347,9 @@ Support the following characters:
 - %22->"
 - %27->'
 
+### TextToHtmlofNewline.cpp
+
+Use to convert line breaks (\n) in text to line breaks (</br>) in HTML.
 
 ---
 ### UsePipeToExeCmd.cpp
