@@ -340,7 +340,7 @@ The following functions have been added:
 
 Use the HTTP Server API to perform server-side tasks.
 
-This is a PoC that implements remote control through the browser.
+This is a POC that implements remote control through the browser.
 
 Reference:
 
