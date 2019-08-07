@@ -43,6 +43,7 @@ WCHAR *UrlDecodeWCHAR(WCHAR *String1)
 			String2[i] = String1[i + Flag * 2];
 		}
 	}
+	String2[wcslen(String1)] = '\0';
 	//	printf("%ws", String2);
 	return String2;
 }
