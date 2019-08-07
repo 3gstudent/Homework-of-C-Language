@@ -334,4 +334,17 @@ The following functions have been added:
  - GetOSVersion
  - Support different OS
 
+---
+
+### HTTPServerWebshell.cpp
+
+Use the HTTP Server API to perform server-side tasks.
+
+This is a PoC that implements remote control through the browser.
+
+Reference:
+
+https://docs.microsoft.com/en-us/windows/win32/http/http-server-sample-application
+
+
 
