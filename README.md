@@ -347,6 +347,12 @@ Support the following characters:
 - %22->"
 - %27->'
 
+
+---
+### UsePipeToExeCmd.cpp
+
+Use pipe to execute CMD commands.
+
 ---
 
 ### HTTPServerWebshell.cpp
