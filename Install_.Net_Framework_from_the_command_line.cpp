@@ -1,5 +1,3 @@
-#include "stdafx.h"
-
 #include <afx.h>
 #include <Windows.h>
 
