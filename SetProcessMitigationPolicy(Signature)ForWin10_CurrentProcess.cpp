@@ -41,7 +41,7 @@ int main(int argc, const char *argv[])
 	HANDLE hProcess = GetCurrentProcess();
 	add_mitigations(hProcess);
 
-	getchar();
+//	getchar();
 
 	return 0;
 }
