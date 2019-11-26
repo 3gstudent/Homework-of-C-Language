@@ -36,6 +36,7 @@ int main(int argc, const char *argv[])
 	if (!EnableDebugPrivilege(TRUE))
 	{
 		printf("[!]AdjustTokenPrivileges Failed.<%d>\n", GetLastError());
+		return 0;
 	}
 
 	HANDLE hProcess = GetCurrentProcess();
