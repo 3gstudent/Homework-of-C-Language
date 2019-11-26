@@ -382,3 +382,28 @@ You can get Microsoft .NET Framework 4.5.1 (Offline Installer) from:https://www.
 
 ---
 
+### GetProcessMitigationPolicyForWin8.cpp
+
+Check the ProcessMitigationPolicy of the selected process.
+
+Support: Win8-Win10
+
+### GetProcessMitigationPolicyForWin10.cpp
+
+Check the ProcessMitigationPolicy of the selected process.
+
+Support: Win10
+
+### SetProcessMitigationPolicy(Signature)ForWin8_CurrentProcess.cpp
+
+Enable the ProcessSignaturePolicy(MicrosoftSignedOnly) of the current process.
+
+Support: Win8-Win10
+
+### SetProcessMitigationPolicy(Signature)ForWin10_CurrentProcess.cpp
+
+Enable the ProcessSignaturePolicy(MicrosoftSignedOnly) of the current process.
+
+Support: Win10
+
+---
