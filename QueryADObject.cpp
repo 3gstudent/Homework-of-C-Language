@@ -58,7 +58,6 @@ HRESULT Search(IDirectorySearch *pContainerToSearch,	// IDirectorySearch pointer
 	hr = pContainerToSearch->SetSearchPreference(&SearchPrefs, dwNumPrefs);
 	if (FAILED(hr))
 	{
-//		delete[] pszSearchFilter;
 		return hr;
 	}
 
