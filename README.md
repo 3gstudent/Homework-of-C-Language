@@ -407,3 +407,18 @@ Enable the ProcessSignaturePolicy(MicrosoftSignedOnly) of the current process.
 Support: Win10
 
 ---
+
+### QueryADObject.cpp
+
+Reference:
+
+https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/netds/adsi/activedir/QueryUsers/vc
+
+https://github.com/outflanknl/Recon-AD
+
+This program queries for objects in the current user's domain.
+
+
+
+
+
