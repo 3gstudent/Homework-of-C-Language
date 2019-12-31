@@ -418,7 +418,14 @@ https://github.com/outflanknl/Recon-AD
 
 This program queries for objects in the current user's domain.
 
+---
 
+### GetDomainPasswordPolicy
 
+Use to get the password policy of the current domain.
 
+### CheckUserBadPwdPolicy
 
+Use to get all the domain users' badPasswordTime and badPwdCount properties.
+
+---
