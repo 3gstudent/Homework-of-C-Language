@@ -429,3 +429,68 @@ Use to get the password policy of the current domain.
 Use to get all the domain users' badPasswordTime and badPwdCount properties.
 
 ---
+
+### tsssp_client.cpp
+
+tsssp::client of kekeo
+
+Source:https://github.com/gentilkiwi/kekeo
+
+Usage:
+
+```
+tsssp_client.exe <target>
+```
+
+Eg:
+
+```
+tsssp_client.exe localhost
+tsssp_client.exe Computer01.test.com
+```
+
+---
+
+### File_XOR_generator.cpp
+
+Use to XOR the contents of a file.
+
+Usage:
+
+```
+File_XOR_generator.exe <file path> <XOR inputs>
+```
+
+Eg:
+
+```
+File_XOR_generator.exe test.exe 0x01
+```
+
+### HostingCLR_with_arguments_XOR.cpp
+
+Reference:https://github.com/etormadiv/HostingCLR
+
+Add a function of changing cElement to the number of Main arguments.(https://github.com/etormadiv/HostingCLR/blob/master/HostingCLR/HostingCLR.cpp#L218)
+
+Support passing multiple parameters to CLR.
+
+### HostingCLR_with_arguments_XOR_TamperETW.cpp
+
+Reference:https://github.com/etormadiv/HostingCLR
+
+Add a function of changing cElement to the number of Main arguments.(https://github.com/etormadiv/HostingCLR/blob/master/HostingCLR/HostingCLR.cpp#L218)
+
+Support passing multiple parameters to CLR.
+
+All patching EtwEventWrite codes are from https://github.com/outflanknl/TamperETW/
+
+You need to add [Syscalls.asm](https://github.com/outflanknl/TamperETW/blob/master/TamperETW/UnmanagedCLR/Syscalls.asm) when building.
+
+---
+
+
+
+
+
+
