@@ -1,11 +1,11 @@
-# Homework-of-C-Language
+# Homework of C Language
 C/C++ code examples of my blog.
 
 ---
 
 ### SetProcessCritical.cpp
 
-Set the selected process as critical or not.
+Set the selected process whether it is critical or not.
 
 If the process is critical,when exit the process,the system will cause BSOD.
 
