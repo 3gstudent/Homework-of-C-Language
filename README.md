@@ -1,5 +1,5 @@
 # Homework-of-C-Language
-C/C++ code examples of my blog.
+C/C++ code examples of My blog.
 
 ---
 
